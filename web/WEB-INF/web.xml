@@ -24,6 +24,18 @@
         <servlet-name>product</servlet-name>
         <servlet-class>pck.users.product</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InventCarros</servlet-name>
+        <servlet-class>pck.users.Carros</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getVehiculos</servlet-name>
+        <servlet-class>pck.users.getVehiculos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>insertVehiculo</servlet-name>
+        <servlet-class>pck.users.insertVehiculo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>insertUserServlet</servlet-name>
         <url-pattern>/insertUserServlet</url-pattern>
@@ -47,6 +59,18 @@
     <servlet-mapping>
         <servlet-name>product</servlet-name>
         <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InventCarros</servlet-name>
+        <url-pattern>/InventCarros</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getVehiculos</servlet-name>
+        <url-pattern>/getVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertVehiculo</servlet-name>
+        <url-pattern>/insertVehiculo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
