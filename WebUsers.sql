@@ -2,11 +2,10 @@ create database WebUsers
 
 use WebUsers
 
-create table users
-(
+create table users(
 Name varchar(50),
 Email varchar(50),
-Phone int    
+Phone int
 )
 
 insert into users (Name, Email, Phone)
