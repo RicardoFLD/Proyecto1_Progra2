@@ -19,15 +19,15 @@
         
         <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Registro carro a vender</a>
+                <a class="navbar-brand" href="#">Register cars to sell</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">  
                         <li class="nav-item">
-                            <a class="nav-link active" href="invertarioCar">Inventario</a
-                            <a class="nav-link active" href="index.html">Principal</a>
+                            <a class="nav-link active" href="invertarioCar">Inventory</a
+                            <a class="nav-link active" href="index.html">Main</a>
                         </li>   
                     </ul>
                 </div>
@@ -38,7 +38,7 @@
         <div class="container" style="margin-top:5%">
             <div class="card" style="width: 45rem;">
                 <div class="card-header">
-                    Nuevo vehiculo para venta
+                    New vehicle
                 </div>
                 <div class="card-body">
                     <form action="insertVehiculo" method="post">
@@ -46,23 +46,23 @@
                             <div class="col">
                                 <div class="form-floating mb-3">
                                     <input name="txtMarca" type="text" class="form-control" id="txtMarca" placeholder="Toyota" required>
-                                    <label for="txtMarca">Marca</label>
+                                    <label for="txtMarca">Brand</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input name="txtModelo" type="text" class="form-control" id="txtModelo" placeholder="Modelo" required>
-                                    <label for="txtModelo">Modelo</label>
+                                    <label for="txtModelo">Model</label>
                                 </div>        
                                 <div class="form-floating mb-3">
                                     <input name="txtAño" type="number" class="form-control" id="txtAño" placeholder="1993" required>
-                                    <label for="txtAño">Año</label>
+                                    <label for="txtAño">Year</label>
                                 </div>
                                   <div class="col-md-3">
-                                      <label for="validationCustom04" class="form-label">Estilo</label>
+                                      <label for="validationCustom04" class="form-label">Style</label>
                                       <select class="form-select" id="validationCustom04" required>
-                                          <option selected disabled value="">Estilo</option>
-                                          <option>Estilo 1</option>
-                                          <option>Estilo 2</option>
-                                          <option>Estilo 3</option>
+                                          <option selected disabled value="">Style</option>
+                                          <option>Style 1</option>
+                                          <option>Style 2</option>
+                                          <option>Style 3</option>
                                       </select>
                                       <div class="invalid-feedback">
                                           Please select a valid state.

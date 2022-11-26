@@ -73,7 +73,7 @@ public class getVehiculosServlet extends HttpServlet {
                 out.println("<td>" + resultSet.getString("Modelo") + "</td>");
                 out.println("<td>" + resultSet.getString("Año") + "</td>");
                 out.println("<td>" + resultSet.getInt("Estilo") + "</td>");
-                /*out.println("<td><a href='loadUserServlet?Id=" + resultSet.getInt("Id") + "'>Edit</a></td>");*/
+                /*out.println("<td><a href='loadCar?Marca=" + resultSet.getMarca("Marca") + "'>Edit</a></td>");*/
                 out.println("</tr>");
             }
             out.println("</tbody>");

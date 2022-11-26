@@ -31,6 +31,8 @@ public class insertVehiculos extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
+     * @throws java.lang.ClassNotFoundException
      */
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -38,27 +40,26 @@ public class insertVehiculos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         PrintWriter out = response.getWriter();
-
+            
         try {
             
-            String txtMarca= request.getParameter("txtMarca");
-            String txtModelo = request.getParameter("txtModelo");
-            int txtAño= Integer.parseInt(request.getParameter("txtAño"));
-            String txtEstilo = request.getParameter("txtEstilo");
+            String txtName = request.getParameter("txtName");
+            String txtEmail = request.getParameter("txtEmail");
+            int txtPhone = Integer.parseInt(request.getParameter("txtPhone"));
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebUsers", "root", "Admin$1234");
             Statement statement = connection.createStatement();
             Statement statement2 = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from users where carros = '" + txtMarca + "'");
+            ResultSet resultSet = statement.executeQuery("select * from users where Email = '" + txtEmail + "'");
 
             if (resultSet.next()) {
                 out.println("<script type='text/javascript'>alert('Email already used');</script>");
                 RequestDispatcher rd = request.getRequestDispatcher("/index.html");
                 rd.include(request, response);
             } else {
-                String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
-                        + "values (" + txtMarca + "', '" + txtModelo + "', '" + txtAño + "'" + txtEstilo + "')";
+                String sql = "insert into users (Name, Email, Phone) "
+                        + "values (" + txtName + "', '" + txtEmail + "', '" + txtPhone + "')";
 
                 statement2.executeUpdate(sql);
                 statement2.close();
@@ -114,3 +115,5 @@ public class insertVehiculos extends HttpServlet {
     }// </editor-fold>
 
 }
+    
+            
