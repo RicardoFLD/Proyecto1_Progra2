@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author angie
  */
-public class vendidoVehiculos extends HttpServlet {
+public class soldVehiculos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,7 +49,7 @@ public class vendidoVehiculos extends HttpServlet {
 
             statement.executeUpdate(sql);
             statement.close();
-
+            
             out.println("<script type='text/javascript'>alert('Car sold');</script>");
             RequestDispatcher rd = request.getRequestDispatcher("/getVehiculosServlet");
             rd.include(request, response);

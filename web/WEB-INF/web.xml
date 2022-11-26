@@ -76,6 +76,10 @@
         <servlet-name>vendidoVehiculos</servlet-name>
         <servlet-class>pck.carros.vendidoVehiculos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>soldVehiculos</servlet-name>
+        <servlet-class>pck.carros.soldVehiculos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>insertUserServlet</servlet-name>
         <url-pattern>/insertUserServlet</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>vendidoVehiculos</servlet-name>
         <url-pattern>/vendidoVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>soldVehiculos</servlet-name>
+        <url-pattern>/soldVehiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
