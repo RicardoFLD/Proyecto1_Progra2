@@ -44,6 +44,10 @@
         <servlet-name>Carros</servlet-name>
         <servlet-class>pck.users.Carros</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getVehiculosServlet</servlet-name>
+        <servlet-class>pck.users.getVehiculosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>insertUserServlet</servlet-name>
         <url-pattern>/insertUserServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>Carros</servlet-name>
         <url-pattern>/Carros</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getVehiculosServlet</servlet-name>
+        <url-pattern>/getVehiculosServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

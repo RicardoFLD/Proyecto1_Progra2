@@ -1,4 +1,4 @@
-   /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Julio
+ * @author angie
  */
-public class invertarioCar extends HttpServlet {
+public class getVehiculosServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,8 +34,8 @@ public class invertarioCar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        PrintWriter out = response.getWriter();
+        
+         PrintWriter out = response.getWriter();
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -68,13 +68,12 @@ public class invertarioCar extends HttpServlet {
             out.println("<tbody>");
             
             while (resultSet.next()) {
-                out.println("<tr onclick=\"window.location.href = 'loadCar?Id=" + resultSet.getInt("Id") + "';\">");
-                out.println("<th scope=\"row\">" + resultSet.getInt("Marca") + "</th>");
+                out.println("<tr onclick=\"window.location.href = 'loadCar?Marca=" + resultSet.getString("Marca") + "';\">");
+                out.println("<th scope=\"row\">" + resultSet.getString("Marca") + "</th>");
                 out.println("<td>" + resultSet.getString("Modelo") + "</td>");
                 out.println("<td>" + resultSet.getString("Año") + "</td>");
                 out.println("<td>" + resultSet.getInt("Estilo") + "</td>");
-                
-                
+                /*out.println("<td><a href='loadUserServlet?Id=" + resultSet.getInt("Id") + "'>Edit</a></td>");*/
                 out.println("</tr>");
             }
             out.println("</tbody>");
