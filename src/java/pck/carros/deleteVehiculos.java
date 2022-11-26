@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package pck.users;
+package pck.carros;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author angie
  */
-public class getVehiculosServlet extends HttpServlet {
+public class deleteVehiculos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,56 +34,24 @@ public class getVehiculosServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-         PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
 
         try {
+            
+            String Marca = request.getParameter("Marca");
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from carros");
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet invertarioCar</title>");
-            out.println("<script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js\" integrity=\"sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3\" crossorigin=\"anonymous\"></script>");
-            out.println("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js\" integrity=\"sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz\" crossorigin=\"anonymous\"></script>");
-            out.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT\" crossorigin=\"anonymous\">");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class=\"container\" style=\"margin-top:5%\">");
-            out.println("<table class=\"table table-hover\">");
-            out.println("<thead>");
-            out.println("<tr>");
-            out.println("<th scope=\"col\">Marca</th>");
-            out.println("<th scope=\"col\">Modelo</th>");
-            out.println("<th scope=\"col\">Año</th>");
-            out.println("<th scope=\"col\">Estilo</th>");
-           
+            String sql = "delete from carros where Marca = " + Marca;
 
-            out.println("</tr>");
-            out.println("</thead>");
-            out.println("</thead>");
-            out.println("<tbody>");
-            
-            while (resultSet.next()) {
-                out.println("<tr onclick=\"window.location.href = 'loadCar?Marca=" + resultSet.getString("Marca") + "';\">");
-                out.println("<th scope=\"row\">" + resultSet.getString("Marca") + "</th>");
-                out.println("<td>" + resultSet.getString("Modelo") + "</td>");
-                out.println("<td>" + resultSet.getString("Año") + "</td>");
-                out.println("<td>" + resultSet.getInt("Estilo") + "</td>");
-                /*out.println("<td><a href='loadCar?Marca=" + resultSet.getMarca("Marca") + "'>Edit</a></td>");*/
-                out.println("</tr>");
-            }
-            out.println("</tbody>");
-            out.println("</table>");
-            out.println("<a href=\"index.html\">Go back</a>");
-            out.println("</div>");
-            out.println("</body>");
-            out.println("</html>");
+            statement.executeUpdate(sql);
+            statement.close();
 
-            
+            out.println("<script type='text/javascript'>alert('Car deleted');</script>");
+            RequestDispatcher rd = request.getRequestDispatcher("/getVehiculosServlet");
+            rd.include(request, response);
         } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
             out.println(e.getMessage());
         }

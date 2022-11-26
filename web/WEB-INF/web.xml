@@ -48,6 +48,26 @@
         <servlet-name>getVehiculosServlet</servlet-name>
         <servlet-class>pck.users.getVehiculosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteVehiculos</servlet-name>
+        <servlet-class>pck.carros.deleteVehiculos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateVehiculos</servlet-name>
+        <servlet-class>pck.carros.UpdateVehiculos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateVehiculos</servlet-name>
+        <servlet-class>pck.carros.updateVehiculos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>insertVehiculosServlet</servlet-name>
+        <servlet-class>insertVehiculosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>insertVehiculosServlets</servlet-name>
+        <servlet-class>pck.carros.insertVehiculosServlets</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>insertUserServlet</servlet-name>
         <url-pattern>/insertUserServlet</url-pattern>
@@ -95,6 +115,26 @@
     <servlet-mapping>
         <servlet-name>getVehiculosServlet</servlet-name>
         <url-pattern>/getVehiculosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteVehiculos</servlet-name>
+        <url-pattern>/deleteVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateVehiculos</servlet-name>
+        <url-pattern>/UpdateVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateVehiculos</servlet-name>
+        <url-pattern>/updateVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertVehiculosServlet</servlet-name>
+        <url-pattern>/insertVehiculosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertVehiculosServlets</servlet-name>
+        <url-pattern>/insertVehiculosServlets</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

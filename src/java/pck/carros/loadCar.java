@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package pck.users;
+package pck.carros;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +40,7 @@ public class loadCar extends HttpServlet {
       
 
         try {
-            int Marca = Integer.parseInt(request.getParameter("Marca"));
+            String Marca =  request.getParameter("Marca");
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
             Statement statement = connection.createStatement();
