@@ -11,8 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
@@ -29,25 +28,27 @@ public class Users extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String Name;
-    String Email;
-    int Phone;
+    String Marca;
+    String Modelo;
+    int Año;
+    String Estilo;
     
 
-    public Users(int prId, String prName, String prEmail, int prPhone) {
-        this.Name = prName;
-        this.Email = prEmail;
-        this.Phone = prPhone;
+    public Users(String prMarca, String prModelo, int prAño, String prEstilo) {
+        this.Marca = prMarca;
+        this.Modelo = prModelo;
+        this.Año = prAño;
+        this.Estilo = prEstilo;
     }
 
-    public Boolean CreateProductsServlet(Users user) {
+   public Boolean CreateUser(Users users) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebUsers", "root", "Admin$1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Webcarros", "root", "Admin$1234");
             Statement statement = connection.createStatement();
 
-            String sql = "insert into users (Name, Email, Phone) "
-                    + "values (" + user.Name + "', '" + user.Email + "', " + user.Phone + ")";
+            String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
+                    + "values (" + users.Marca + ", '" + users.Modelo + "', '" + users.Año + "', '" + users.Estilo + "')";
 
             statement.execute(sql);
             statement.close();
@@ -56,49 +57,5 @@ public class Users extends HttpServlet {
         } catch (ClassNotFoundException | NumberFormatException | SQLException e) {
             return false;
         }
-    } 
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
-    private void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    }        
 }

@@ -51,7 +51,7 @@ public class Carros extends HttpServlet {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
             Statement statement = connection.createStatement();
 
-            String sql = "insert into users (Marca, Modelo, Año, Estilo) "
+            String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
                     + "values (" + carro.Marca + ", '" + carro.Modelo + "', '" + carro.Año + "', " + carro.Estilo + ", ' )";
 
             statement.execute(sql);
