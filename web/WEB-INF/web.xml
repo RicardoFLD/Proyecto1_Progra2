@@ -36,6 +36,14 @@
         <servlet-name>insertVehiculo</servlet-name>
         <servlet-class>pck.users.insertVehiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>insertVehiculos</servlet-name>
+        <servlet-class>pck.users.insertVehiculos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Carros</servlet-name>
+        <servlet-class>pck.users.Carros</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>insertUserServlet</servlet-name>
         <url-pattern>/insertUserServlet</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>insertVehiculo</servlet-name>
         <url-pattern>/insertVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertVehiculos</servlet-name>
+        <url-pattern>/insertVehiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Carros</servlet-name>
+        <url-pattern>/Carros</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

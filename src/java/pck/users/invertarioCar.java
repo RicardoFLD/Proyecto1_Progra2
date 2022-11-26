@@ -66,6 +66,7 @@ public class invertarioCar extends HttpServlet {
             out.println("</thead>");
             out.println("</thead>");
             out.println("<tbody>");
+            
             while (resultSet.next()) {
                 out.println("<tr onclick=\"window.location.href = 'loadCar?Id=" + resultSet.getInt("Id") + "';\">");
                 out.println("<th scope=\"row\">" + resultSet.getInt("Marca") + "</th>");

@@ -67,7 +67,7 @@ public class loadCar extends HttpServlet {
             out.println("            <div class='row'>");
             out.println("                <div class='col'>");
             out.println("                    <div class='form-floating mb-3'>");
-            out.println("                        <input value='" + resultSet.getInt("Marca") + "' name='txtIdn' type='number' class='form-control' id='txtMarca' placeholder='Suzuki' required readonly>");
+            out.println("                        <input value='" + resultSet.getString("Marca") + "' name='txtIdn' type='number' class='form-control' id='txtMarca' placeholder='Suzuki' required readonly>");
             out.println("                        <label for='txtMarca'>Marca</label>");
             out.println("                    </div>");
             out.println("                    <div class='form-floating mb-3'>");

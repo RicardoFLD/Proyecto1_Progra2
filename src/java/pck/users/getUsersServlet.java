@@ -64,6 +64,7 @@ public class getUsersServlet extends HttpServlet {
             out.println("</thead>");
             out.println("</thead>");
             out.println("<tbody>");
+            
             while (resultSet.next()) {
                 out.println("<tr onclick=\"window.location.href = 'loadUserServlet?Name=" + resultSet.getString("Name") + "';\">");
                 out.println("<th scope=\"row\">" + resultSet.getString("Name") + "</th>");

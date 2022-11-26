@@ -4,24 +4,36 @@
  */
 package pck.users;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
 /**
  *
- * @author Julio
+ * @author angie
  */
-public class product {
+public class Carros extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    
     String Marca;
     String Modelo;
     int Año;
     String Estilo;
     
-
-
-    public product(String pMarca, String pModelo, int pAño, String pEstilo) {
+    public Carros(String pMarca, String pModelo, int pAño, String pEstilo) {
         
         this.Marca = pMarca;
         this.Modelo = pModelo;
@@ -30,8 +42,9 @@ public class product {
         
         
     }
-
-    public Boolean CreateProduct(product user) {
+    
+    public Boolean CreateCarrosServlet(Carros carro) {
+        
         try {
             
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -39,7 +52,7 @@ public class product {
             Statement statement = connection.createStatement();
 
             String sql = "insert into users (Marca, Modelo, Año, Estilo) "
-                    + "values (" + user.Marca + ", '" + user.Modelo + "', '" + user.Año + "', " + user.Estilo + ", ' )";
+                    + "values (" + carro.Marca + ", '" + carro.Modelo + "', '" + carro.Año + "', " + carro.Estilo + ", ' )";
 
             statement.execute(sql);
             statement.close();
@@ -50,3 +63,4 @@ public class product {
         }
     }        
 }
+

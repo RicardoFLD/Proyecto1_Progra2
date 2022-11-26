@@ -6,6 +6,12 @@ package pck.users;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement; 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author PRINCIPAL
+ * @author angie
  */
-public class getVehiculos extends HttpServlet {
+public class insertVehiculos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -26,20 +32,45 @@ public class getVehiculos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet getVehiculos</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet getVehiculos at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        PrintWriter out = response.getWriter();
+
+        try {
+            
+            String txtMarca= request.getParameter("txtMarca");
+            String txtModelo = request.getParameter("txtModelo");
+            int txtAño= Integer.parseInt(request.getParameter("txtAño"));
+            String txtEstilo = request.getParameter("txtEstilo");
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
+            Statement statement = connection.createStatement();
+            Statement statement2 = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from users where carros = '" + txtMarca + "'");
+
+            if (resultSet.next()) {
+                out.println("<script type='text/javascript'>alert('Email already used');</script>");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+                rd.include(request, response);
+            } else {
+                String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
+                        + "values (" + txtMarca + "', '" + txtModelo + "', '" + txtAño + "'" + txtEstilo + "')";
+
+                statement2.executeUpdate(sql);
+                statement2.close();
+
+                out.println("<script type='text/javascript'>alert('User created');</script>");
+                RequestDispatcher rd = request.getRequestDispatcher("/getUsersServlet");
+                rd.include(request, response);
+            }
+
+            statement.close();
+        } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
+            out.println(e.getMessage());
         }
     }
 
