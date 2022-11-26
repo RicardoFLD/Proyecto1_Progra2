@@ -22,6 +22,7 @@ public class product {
 
 
     public product(String pMarca, String pModelo, int pAño, String pEstilo) {
+        
         this.Marca = pMarca;
         this.Modelo = pModelo;
         this.Año = pAño;
@@ -32,11 +33,12 @@ public class product {
 
     public Boolean CreateProduct(product user) {
         try {
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
             Statement statement = connection.createStatement();
 
-            String sql = "insert into users (Id, Name, Category, Price, Date ) "
+            String sql = "insert into users (Marca, Modelo, Año, Estilo) "
                     + "values (" + user.Marca + ", '" + user.Modelo + "', '" + user.Año + "', " + user.Estilo + ", ' )";
 
             statement.execute(sql);
