@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author angie
  */
+
+//NO FUNCIONA, HAY QUE ARREGLARLO Y ELIMINAR QUE NO SE PERMITE DOBLE MARCA, YA QUE AQUI NO SE OCUPA ESO
 public class insertVehiculos extends HttpServlet {
 
     /**
