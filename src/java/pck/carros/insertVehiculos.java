@@ -60,10 +60,6 @@ public class insertVehiculos extends HttpServlet {
             ResultSet resultSet = statement.executeQuery("select * from carros where Marca = '" + txtMarca + "'");
 
             if (resultSet.next()) {
-                out.println("<script type='text/javascript'>alert('Car already created');</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-                rd.include(request, response);
-            } else {
                 String sql = "insert into users (Marca, Modelo, Año, Estilo) "
                         + "values (" + txtMarca + ", '" + txtModelo + "', '" + txtAño + "', '" + txtEstilo + "')";
 
@@ -73,6 +69,8 @@ public class insertVehiculos extends HttpServlet {
                 out.println("<script type='text/javascript'>alert('Car created');</script>");
                 RequestDispatcher rd = request.getRequestDispatcher("/getVehiculosServlet");
                 rd.include(request, response);
+            } else {
+
             }
 
             statement.close();
