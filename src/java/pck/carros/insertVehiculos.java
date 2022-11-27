@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author angie
  */
 
-//NO FUNCIONA, HAY QUE ARREGLARLO Y ELIMINAR QUE NO SE PERMITE DOBLE MARCA, YA QUE AQUI NO SE OCUPA ESO
 public class insertVehiculos extends HttpServlet {
 
     /**
@@ -47,7 +46,6 @@ public class insertVehiculos extends HttpServlet {
 
         try {
           
-           
             String txtMarca = request.getParameter("txtMarca");
             String txtModelo = request.getParameter("txtModelo");
             int txtAño= Integer.parseInt(request.getParameter("txtAño"));
@@ -56,24 +54,16 @@ public class insertVehiculos extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/carros", "root", "Admin$1234");
             Statement statement = connection.createStatement();
-            Statement statement2 = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from carros where Marca = '" + txtMarca + "'");
-
-            if (resultSet.next()) {
-                String sql = "insert into users (Marca, Modelo, Año, Estilo) "
+            
+                String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
                         + "values (" + txtMarca + ", '" + txtModelo + "', '" + txtAño + "', '" + txtEstilo + "')";
 
-                statement2.executeUpdate(sql);
-                statement2.close();
+                statement.executeUpdate(sql);
+                statement.close();
 
-                out.println("<script type='text/javascript'>alert('Car created');</script>");
                 RequestDispatcher rd = request.getRequestDispatcher("/getVehiculosServlet");
                 rd.include(request, response);
-            } else {
-
-            }
-
-            statement.close();
+        
         } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
             out.println(e.getMessage());
         }
