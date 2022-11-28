@@ -28,27 +28,25 @@ public class Users extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String Marca;
-    String Modelo;
-    int Año;
-    String Estilo;
+    String Name;
+    String Email;
+    int Phone;
     
 
-    public Users(String prMarca, String prModelo, int prAño, String prEstilo) {
-        this.Marca = prMarca;
-        this.Modelo = prModelo;
-        this.Año = prAño;
-        this.Estilo = prEstilo;
+    public Users(int prId, String prName, String prEmail, int prPhone) {
+        this.Name = prName;
+        this.Email = prEmail;
+        this.Phone = prPhone;
     }
 
-   public Boolean CreateUser(Users users) {
+    public Boolean CreateProductsServlet(Users user) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Webcarros", "root", "Admin$1234");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebUsers", "root", "Admin$1234");
             Statement statement = connection.createStatement();
 
-            String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
-                    + "values (" + users.Marca + ", '" + users.Modelo + "', '" + users.Año + "', '" + users.Estilo + "')";
+            String sql = "insert into users (Name, Email, Phone) "
+                    + "values (" + user.Name + "', '" + user.Email + "', " + user.Phone + ")";
 
             statement.execute(sql);
             statement.close();
@@ -57,5 +55,5 @@ public class Users extends HttpServlet {
         } catch (ClassNotFoundException | NumberFormatException | SQLException e) {
             return false;
         }
-    }        
+    }     
 }

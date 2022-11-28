@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author PRINCIPAL
  */
-public class insertUserServlet extends HttpServlet {
+public class updateUsers extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,15 +31,14 @@ public class insertUserServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         try {
-            
             String txtName = request.getParameter("txtName");
             String txtEmail = request.getParameter("txtEmail");
             int txtPhone = Integer.parseInt(request.getParameter("txtPhone"));
@@ -48,26 +46,17 @@ public class insertUserServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/WebUsers", "root", "Admin$1234");
             Statement statement = connection.createStatement();
-            Statement statement2 = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from users where Email = '" + txtEmail + "'");
 
-            if (resultSet.next()) {
-                out.println("<script type='text/javascript'>alert('Email already used');</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-                rd.include(request, response);
-            } else {
-                String sql = "insert into users (Name, Email, Phone) "
-                        + "values (" + txtName + "', '" + txtEmail + "', '" + txtPhone + "')";
+            String sql = "update users set Email = '" + txtEmail +  
+                         "', Phone = '" + txtPhone +
+                         "', where Name = '" + txtName;
 
-                statement2.executeUpdate(sql);
-                statement2.close();
-
-                out.println("<script type='text/javascript'>alert('User created');</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("/getUsersServlet");
-                rd.include(request, response);
-            }
-            
+            statement.executeUpdate(sql);
             statement.close();
+
+                       
+            RequestDispatcher rd = request.getRequestDispatcher("/getusersServlet");
+            rd.include(request, response);
         } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
             out.println(e.getMessage());
         }
