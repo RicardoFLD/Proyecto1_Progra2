@@ -49,7 +49,7 @@ public class updateUsers extends HttpServlet {
 
             String sql = "update users set Email = '" + txtEmail +  
                          "', Phone = " + txtPhone + "'" +
-                         "where Name = '" + txtName;
+                         "where Name = " + txtName;
 
             statement.executeUpdate(sql);
             statement.close();
