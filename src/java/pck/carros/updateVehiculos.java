@@ -51,7 +51,7 @@ public class updateVehiculos extends HttpServlet {
                          "', Año = " + txtAño + 
                          "', Estilo = '" + txtEstilo + "'" +
                          " where Marca = " + txtMarca;
-            
+           
             statement.executeUpdate(sql);
             statement.close();
 
