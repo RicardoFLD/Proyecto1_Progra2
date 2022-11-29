@@ -46,7 +46,7 @@ public class Users extends HttpServlet {
             Statement statement = connection.createStatement();
 
             String sql = "insert into users (Name, Email, Phone) "
-                    + "values (" + user.Name + ", '" + user.Email + "', '" + user.Phone + "')";
+                    + "values ('" + user.Name + "', '" + user.Email + "', " + user.Phone + ")";
             
             statement.execute(sql);
             statement.close();

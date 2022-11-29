@@ -48,8 +48,8 @@ public class updateUsers extends HttpServlet {
             Statement statement = connection.createStatement();
 
             String sql = "update users set Email = '" + txtEmail +  
-                         "', Phone = " + txtPhone + "'" +
-                         "where Name = " + txtName;
+                         ", Phone = '" + txtPhone + "'" +
+                         " where Name = " + txtName;
 
             statement.executeUpdate(sql);
             statement.close();

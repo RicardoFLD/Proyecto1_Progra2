@@ -57,8 +57,8 @@ public class insertUserServlet extends HttpServlet {
                 rd.include(request, response);
             } else {
                 String sql = "insert into users (Name, Email, Phone) "
-                        + "values (" + txtName + "', '" + txtEmail + "', '" + txtPhone + "')";
-
+                        + "values ('" + txtName + "', '" + txtEmail + "', " + txtPhone + ")";
+                
                 statement2.executeUpdate(sql);
                 statement2.close();
 
