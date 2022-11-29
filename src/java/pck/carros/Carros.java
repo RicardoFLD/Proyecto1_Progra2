@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
@@ -52,8 +52,8 @@ public class Carros extends HttpServlet {
             Statement statement = connection.createStatement();
 
             String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
-                    + "values (" + carro.Marca + ", '" + carro.Modelo + "', '" + carro.Año + "', " + carro.Estilo + ", ' )";
-
+                    + "values ('" + carro.Marca + "', '" + carro.Modelo + "', " + carro.Año + ", '" + carro.Estilo + "' )";
+            
             statement.execute(sql);
             statement.close();
             

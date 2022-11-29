@@ -56,7 +56,7 @@ public class insertVehiculos extends HttpServlet {
             Statement statement = connection.createStatement();
             
                 String sql = "insert into carros (Marca, Modelo, Año, Estilo) "
-                        + "values (" + txtMarca + ", '" + txtModelo + "', '" + txtAño + "', '" + txtEstilo + "')";
+                        + "values ('" + txtMarca + "', '" + txtModelo + "', " + txtAño + ", '" + txtEstilo + "')";
 
                 statement.executeUpdate(sql);
                 statement.close();
