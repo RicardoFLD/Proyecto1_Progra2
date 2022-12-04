@@ -1,172 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>insertUserServlet</servlet-name>
-        <servlet-class>pck.users.insertUserServlet</servlet-class>
+        <servlet-name>Users</servlet-name>
+        <servlet-class>Catalogo.Items</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>getUsersServlet</servlet-name>
-        <servlet-class>pck.users.getUsersServlet</servlet-class>
+        <servlet-class>Catalogo.getCatalogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Users</servlet-name>
-        <servlet-class>pck.users.Users</servlet-class>
+        <servlet-name>insertUserServlet</servlet-name>
+        <servlet-class>Catalogo.insertCatalogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>invertarioCar</servlet-name>
-        <servlet-class>pck.users.invertarioCar</servlet-class>
+        <servlet-name>loadUserServlet</servlet-name>
+        <servlet-class>Catalogo.loadCatalogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>loadCar</servlet-name>
-        <servlet-class>pck.users.loadCar</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>product</servlet-name>
-        <servlet-class>pck.users.product</servlet-class>
+        <servlet-name>updateUserServlet</servlet-name>
+        <servlet-class>Catalogo.updateCatalogServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InventCarros</servlet-name>
-        <servlet-class>pck.users.Carros</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>getVehiculos</servlet-name>
-        <servlet-class>pck.users.getVehiculos</servlet-class>
+        <servlet-class>Users.InventCarros</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>insertVehiculo</servlet-name>
-        <servlet-class>pck.users.insertVehiculo</servlet-class>
+        <servlet-class>Users.insertVehiculo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>insertVehiculos</servlet-name>
-        <servlet-class>pck.users.insertVehiculos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Carros</servlet-name>
-        <servlet-class>pck.users.Carros</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>getVehiculosServlet</servlet-name>
-        <servlet-class>pck.users.getVehiculosServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>deleteVehiculos</servlet-name>
-        <servlet-class>pck.carros.deleteVehiculos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateVehiculos</servlet-name>
-        <servlet-class>pck.carros.UpdateVehiculos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>updateVehiculos</servlet-name>
-        <servlet-class>pck.carros.updateVehiculos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>insertVehiculosServlet</servlet-name>
-        <servlet-class>insertVehiculosServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>insertVehiculosServlets</servlet-name>
-        <servlet-class>pck.carros.insertVehiculosServlets</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Users1</servlet-name>
-        <servlet-class>pck.users.Users1</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>vendidoVehiculos</servlet-name>
-        <servlet-class>pck.carros.vendidoVehiculos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>soldVehiculos</servlet-name>
-        <servlet-class>pck.carros.soldVehiculos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>updateUsers</servlet-name>
-        <servlet-class>pck.users.updateUsers</servlet-class>
+        <servlet-name>getVehiculos</servlet-name>
+        <servlet-class>Users.getVehiculos</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>insertUserServlet</servlet-name>
-        <url-pattern>/insertUserServlet</url-pattern>
+        <servlet-name>Users</servlet-name>
+        <url-pattern>/Users</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>getUsersServlet</servlet-name>
         <url-pattern>/getUsersServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Users</servlet-name>
-        <url-pattern>/Users</url-pattern>
+        <servlet-name>insertUserServlet</servlet-name>
+        <url-pattern>/insertUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>invertarioCar</servlet-name>
-        <url-pattern>/invertarioCar</url-pattern>
+        <servlet-name>loadUserServlet</servlet-name>
+        <url-pattern>/loadUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>loadCar</servlet-name>
-        <url-pattern>/loadCar</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>product</servlet-name>
-        <url-pattern>/product</url-pattern>
+        <servlet-name>updateUserServlet</servlet-name>
+        <url-pattern>/updateUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InventCarros</servlet-name>
         <url-pattern>/InventCarros</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>getVehiculos</servlet-name>
-        <url-pattern>/getVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>insertVehiculo</servlet-name>
         <url-pattern>/insertVehiculo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>insertVehiculos</servlet-name>
-        <url-pattern>/insertVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Carros</servlet-name>
-        <url-pattern>/Carros</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>getVehiculosServlet</servlet-name>
-        <url-pattern>/getVehiculosServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>deleteVehiculos</servlet-name>
-        <url-pattern>/deleteVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateVehiculos</servlet-name>
-        <url-pattern>/UpdateVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>updateVehiculos</servlet-name>
-        <url-pattern>/updateVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>insertVehiculosServlet</servlet-name>
-        <url-pattern>/insertVehiculosServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>insertVehiculosServlets</servlet-name>
-        <url-pattern>/insertVehiculosServlets</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Users1</servlet-name>
-        <url-pattern>/Users1</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>vendidoVehiculos</servlet-name>
-        <url-pattern>/vendidoVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>soldVehiculos</servlet-name>
-        <url-pattern>/soldVehiculos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>updateUsers</servlet-name>
-        <url-pattern>/updateUsers</url-pattern>
+        <servlet-name>getVehiculos</servlet-name>
+        <url-pattern>/getVehiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
