@@ -1,68 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>Users</servlet-name>
-        <servlet-class>Catalogo.Items</servlet-class>
+        <servlet-name>Catalogo</servlet-name>
+        <servlet-class>Catalogo.Catalogo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>getUsersServlet</servlet-name>
-        <servlet-class>Catalogo.getCatalogServlet</servlet-class>
+        <servlet-name>getCatalogoServlet</servlet-name>
+        <servlet-class>Catalogo.getCatalogoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>insertUserServlet</servlet-name>
+        <servlet-name>insertCatalogServlet</servlet-name>
         <servlet-class>Catalogo.insertCatalogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>loadUserServlet</servlet-name>
+        <servlet-name>loadCatalogServlet</servlet-name>
         <servlet-class>Catalogo.loadCatalogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>updateUserServlet</servlet-name>
+        <servlet-name>updateCatalogServlet</servlet-name>
         <servlet-class>Catalogo.updateCatalogServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>InventCarros</servlet-name>
-        <servlet-class>Users.InventCarros</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>insertVehiculo</servlet-name>
-        <servlet-class>Users.insertVehiculo</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>getVehiculos</servlet-name>
-        <servlet-class>Users.getVehiculos</servlet-class>
-    </servlet>
     <servlet-mapping>
-        <servlet-name>Users</servlet-name>
-        <url-pattern>/Users</url-pattern>
+        <servlet-name>Catalogo</servlet-name>
+        <url-pattern>/Catalogo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>getUsersServlet</servlet-name>
-        <url-pattern>/getUsersServlet</url-pattern>
+        <servlet-name>getCatalogServlet</servlet-name>
+        <url-pattern>/getCatalogServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>insertUserServlet</servlet-name>
-        <url-pattern>/insertUserServlet</url-pattern>
+        <servlet-name>insertCatalogServlet</servlet-name>
+        <url-pattern>/insertCatalogServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>loadUserServlet</servlet-name>
-        <url-pattern>/loadUserServlet</url-pattern>
+        <servlet-name>loadCatalogServlet</servlet-name>
+        <url-pattern>/loadCatalogServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>updateUserServlet</servlet-name>
-        <url-pattern>/updateUserServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>InventCarros</servlet-name>
-        <url-pattern>/InventCarros</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>insertVehiculo</servlet-name>
-        <url-pattern>/insertVehiculo</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>getVehiculos</servlet-name>
-        <url-pattern>/getVehiculos</url-pattern>
+        <servlet-name>updateCatalogServlet</servlet-name>
+        <url-pattern>/updateCatalogServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
