@@ -5,7 +5,6 @@
 package Catalogo;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -44,7 +43,7 @@ public class Items extends HttpServlet {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Catalogo", "root", "Admin$1234");
             Statement statement = connection.createStatement();
 
-            String sql = "insert into Catalogo (Name, Email, Phone) "
+            String sql = "insert into Catalogo (Name, Email, Phone, Marca, Modelo, Año) "
                     + "values (" + Catalogo.Name + "', '" + Catalogo.Email + "', " + Catalogo.Phone + "', '" + Catalogo.Marca + "', " + Catalogo.Modelo + "', '" + Catalogo.Año + ")";
 
             statement.execute(sql);
