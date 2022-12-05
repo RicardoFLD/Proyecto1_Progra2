@@ -28,7 +28,7 @@ public class Items extends HttpServlet {
     int Año;
     
 
-    public Items(int prId, String prName, String prEmail, int prPhone, String prMarca, String prModelo, int prAño) {
+    public Items(String prName, String prEmail, int prPhone, String prMarca, String prModelo, int prAño) {
         this.Name = prName;
         this.Email = prEmail;
         this.Phone = prPhone;
