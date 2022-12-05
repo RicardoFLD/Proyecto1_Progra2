@@ -1,44 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>Catalogo</servlet-name>
-        <servlet-class>Catalogo.Catalogo</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>getCatalogoServlet</servlet-name>
-        <servlet-class>Catalogo.getCatalogoServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>insertCatalogServlet</servlet-name>
-        <servlet-class>Catalogo.insertCatalogServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>loadCatalogServlet</servlet-name>
-        <servlet-class>Catalogo.loadCatalogServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>updateCatalogServlet</servlet-name>
-        <servlet-class>Catalogo.updateCatalogServlet</servlet-class>
+        <servlet-name>Items</servlet-name>
+        <servlet-class>Catalogo.Items</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Catalogo</servlet-name>
-        <url-pattern>/Catalogo</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>getCatalogServlet</servlet-name>
-        <url-pattern>/getCatalogServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>insertCatalogServlet</servlet-name>
-        <url-pattern>/insertCatalogServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>loadCatalogServlet</servlet-name>
-        <url-pattern>/loadCatalogServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>updateCatalogServlet</servlet-name>
-        <url-pattern>/updateCatalogServlet</url-pattern>
+        <servlet-name>Items</servlet-name>
+        <url-pattern>/Items</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

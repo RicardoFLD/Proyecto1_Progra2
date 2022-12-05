@@ -5,7 +5,6 @@
 package Catalogo;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -54,7 +53,8 @@ public class Items extends HttpServlet {
         } catch (ClassNotFoundException | NumberFormatException | SQLException e) {
             return false;
         }
-    } 
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
