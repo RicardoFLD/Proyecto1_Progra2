@@ -20,6 +20,14 @@
         <servlet-name>updateCatalogServlet</servlet-name>
         <servlet-class>Catalogo.updateCatalogServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteItemServlet</servlet-name>
+        <servlet-class>Catalogo.deleteItemServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VentaItemServlet</servlet-name>
+        <servlet-class>Catalogo.VentaItemServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Items</servlet-name>
         <url-pattern>/Items</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>updateCatalogServlet</servlet-name>
         <url-pattern>/updateCatalogServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteItemServlet</servlet-name>
+        <url-pattern>/deleteItemServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VentaItemServlet</servlet-name>
+        <url-pattern>/VentaItemServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

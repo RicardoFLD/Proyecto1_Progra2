@@ -31,6 +31,22 @@
                             <label>Email</label>
                         </div>
                         <div class="form-floating mb-3">
+                            <input type="number" class="form-control" name="txtPhone" placeholder="44533553">
+                            <label>Phone</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="txtMarca" placeholder="marca">
+                            <label>Marca</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="txtModelo" placeholder="modelo">
+                            <label>Modelo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" name="txtAño" placeholder="1999">
+                            <label>Phone</label>
+                        </div>
+                        <div class="form-floating mb-3">
                             <button type="submit" class="btn btn-primary">Search</button>                            
                         </div>                          
                     </form>                    
@@ -46,7 +62,7 @@
 
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/WebUsers", "root", "Admin$1234");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/Catalogo", "root", "Admin$1234");
                     Statement statement = con.createStatement();
                     resultset = statement.executeQuery("select * from users where name like '%" + txtName + "%' OR email like '%" + txtEmail + "%'");                    
                 } catch (Exception ex) {
@@ -56,23 +72,22 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Phone</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Año</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% while (resultset.next()) {%>
-                    <tr onclick="window.location.href = 'loadUser.jsp?Id=<%=resultset.getInt("Id")%>'">
-                        <th scope="row"> <%=resultset.getInt("Id")%> </th>
-                        <td><%=resultset.getString("Name")%></td>
-                        <td><%=resultset.getString("LastName")%></td>
-                        <td><%=resultset.getInt("Phone")%></td>                        
-                        <td><%=resultset.getString("Email")%></td>                        
-                        <td><%=resultset.getString("Address")%></td>                                            
+                    <tr onclick="window.location.href = 'loadCatalogServlet?Name=<%=resultset.getString("Name")%>'">
+                        <th scope="row"> <%=resultset.getString("Email")%> </th>
+                        <td><%=resultset.getInt("Phone")%></td>                                                
+                        <td><%=resultset.getString("Marca")%></td>
+                        <td><%=resultset.getString("Modelo")%></td>
+                        <td><%=resultset.getInt("Año")%></td>
                     </tr>                    
                     <%}%>
                 </tbody>
