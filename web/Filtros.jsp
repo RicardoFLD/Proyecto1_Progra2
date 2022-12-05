@@ -18,10 +18,10 @@
         <div class="container" style="margin-top:2%">             
             <div class="card">
                 <div class="card-header">
-                    Search user
+                    Search Item
                 </div>
                 <div class="card-body">
-                    <form action="search.jsp">            
+                    <form action="Filtros.jsp">            
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="txtName" placeholder="Name">
                             <label>Name</label>
@@ -56,6 +56,10 @@
             <%
                 String txtName = request.getParameter("txtName");
                 String txtEmail = request.getParameter("txtEmail");
+                int txtPhone = Integer.parseInt(request.getParameter("txtPhone"));
+                String txtMarca = request.getParameter("txtMarca");
+                String txtModelo = request.getParameter("txtModelo");
+                int txtAño = Integer.parseInt(request.getParameter("txtAño"));
 
                 Connection con = null;
                 ResultSet resultset = null;
@@ -64,7 +68,7 @@
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/Catalogo", "root", "Admin$1234");
                     Statement statement = con.createStatement();
-                    resultset = statement.executeQuery("select * from users where name like '%" + txtName + "%' OR email like '%" + txtEmail + "%'");                    
+                    resultset = statement.executeQuery("select * from users where Name like '%" + txtName + "%' OR Email like '%" + txtEmail + "%' OR Phone like '%" + txtPhone + "%' OR Marca like '%" + txtMarca + "%' OR Modelo like '%" + txtModelo + "%' OR Año like '%" + txtAño + "%'" );                    
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
