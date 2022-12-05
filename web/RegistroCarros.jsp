@@ -1,8 +1,11 @@
+-<%-- 
+    Document   : RegistroCarros
+    Created on : 25 nov. 2022, 17:19:25
+    Author     : PRINCIPAL
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         <title>CRAutos</title>
@@ -16,15 +19,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
         <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Registration</a>
+                <a class="navbar-brand" href="#">Register cars to sell</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">  
                         <li class="nav-item">
-                            <a class="nav-link active" href="invertarioCar">Inventario</a>
-                            <a class="nav-link active" href="RegistroCarros.jsp">Registrar Vehiculo</a>
+                            <a class="nav-link active" href="invertarioCar">Inventory</a
+                            <a class="nav-link active" href="index.html">Main</a>
                         </li>   
                     </ul>
                 </div>
@@ -35,24 +38,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <div class="container" style="margin-top:5%">
             <div class="card" style="width: 45rem;">
                 <div class="card-header">
-                    Create user
+                    New vehicle
                 </div>
                 <div class="card-body">
-                    <form action="insertUserServlet" method="post">
+                    <form action="insertVehiculo" method="post">
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input name="txtName" type="text" class="form-control" id="txtName" placeholder="Cesar" required>
-                                    <label for="txtName">Name</label>
+                                    <input name="txtMarca" type="text" class="form-control" id="txtMarca" placeholder="Toyota" required>
+                                    <label for="txtMarca">Brand</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="txtEmail" type="email" class="form-control" id="txtEmail" placeholder="name@example.com" required>
-                                    <label for="txtEmail">Email</label>
+                                    <input name="txtModelo" type="text" class="form-control" id="txtModelo" placeholder="Modelo" required>
+                                    <label for="txtModelo">Model</label>
                                 </div>        
                                 <div class="form-floating mb-3">
-                                    <input name="txtPhone" type="number" class="form-control" id="txtPhone" placeholder="87301229" required>
-                                    <label for="txtPhone">Phone</label>
-                                </div> 
+                                    <input name="txtAño" type="number" class="form-control" id="txtAño" placeholder="1993" required>
+                                    <label for="txtAño">Year</label>
+                                </div>
+                                  <div class="col-md-3">
+                                      <label for="validationCustom04" class="form-label">Style</label>
+                                      <select class="form-select" id="validationCustom04" required>
+                                          <option selected disabled value="">Style</option>
+                                          <option>Style 1</option>
+                                          <option>Style 2</option>
+                                          <option>Style 3</option>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                          Please select a valid state.
+                                      </div>
+                                  </div>
                             </div>
                         </div>
                         <hr>
